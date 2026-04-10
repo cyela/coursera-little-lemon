@@ -1,0 +1,85 @@
+/* Main Component - Grid Layout */
+.Main {
+  grid-area: main;
+  background: linear-gradient(to bottom, #ffffff 0%, #f9f9f9 100%);
+  padding: 3rem 1.5rem;
+  overflow-y: auto;
+}
+
+.Main main {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  align-content: start;
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: #495e57;
+  letter-spacing: 0.5px;
+}
+
+/* Content sections grid */
+.Main-section {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  padding: 2rem;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.Main-section:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.Main-section h2 {
+  grid-column: 1 / -1;
+  margin: 0 0 1rem 0;
+  color: #f4ce14;
+  font-size: 1.5rem;
+}
+
+.Main-section p {
+  grid-column: 1 / -1;
+  margin: 0;
+  line-height: 1.6;
+  color: #495e57;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .Main {
+    padding: 2rem 1rem;
+  }
+
+  .Main main {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .Main-section {
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .Main {
+    padding: 1.5rem 1rem;
+  }
+
+  .Main main {
+    font-size: 1.2rem;
+  }
+
+  .Main-section {
+    padding: 1rem;
+  }
+
+  .Main-section h2 {
+    font-size: 1.2rem;
+  }
+}

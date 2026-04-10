@@ -1,0 +1,79 @@
+/* Nav Component - Grid Layout */
+.Nav {
+  grid-area: nav;
+  background-color: #ffffff;
+  border-bottom: 3px solid #f4ce14;
+  padding: 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.Nav nav {
+  display: grid;
+  grid-template-columns: 1fr;
+  place-items: center;
+}
+
+.Nav nav ul {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 1.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+  max-width: 1200px;
+  width: 100%;
+}
+
+.Nav nav ul li {
+  text-align: center;
+  padding: 0.5rem;
+}
+
+.Nav nav ul li img {
+  max-width: 120px;
+  height: auto;
+  border-radius: 8px;
+}
+
+.Nav nav ul li a {
+  color: #495e57;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1rem;
+  transition: color 0.3s ease, border-bottom 0.3s ease;
+  padding: 0.5rem 0;
+  border-bottom: 2px solid transparent;
+}
+
+.Nav nav ul li a:hover {
+  color: #f4ce14;
+  border-bottom: 2px solid #f4ce14;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .Nav nav ul {
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 1rem;
+  }
+
+  .Nav nav ul li a {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .Nav nav ul {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
+  }
+
+  .Nav nav ul li a {
+    font-size: 0.8rem;
+  }
+
+  .Nav nav ul li img {
+    max-width: 40px;
+  }
+}

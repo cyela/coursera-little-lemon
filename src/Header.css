@@ -1,0 +1,92 @@
+/* Header Component - Grid Layout */
+.Header {
+  grid-area: header;
+  background: linear-gradient(135deg, #495e57 0%, #3a4a45 100%);
+  padding: 0;
+  color: #f4ce14;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.Header header {
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+
+/* CallToAction Section */
+.Header .CallToAction {
+  background: linear-gradient(135deg, #495e57 0%, #3a4a45 100%);
+  padding: 4rem 2rem;
+}
+
+.Header .CallToAction h1 {
+  color: #f4ce14;
+  font-weight: 700;
+  letter-spacing: -1px;
+}
+
+.Header .CallToAction h2 {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.Header .CallToAction p {
+  color: #f0f0f0;
+  line-height: 1.8;
+  font-size: 1.1rem;
+}
+
+.Header .CallToAction .btn-dark {
+  background-color: #f4ce14;
+  border: none;
+  padding: 0.75rem 2.5rem;
+  font-size: 1.1rem;
+  color: #495e57;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.Header .CallToAction .btn-dark:hover {
+  background-color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.cta-image-placeholder {
+  text-align: center;
+}
+
+.cta-image-placeholder img {
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.cta-image-placeholder img:hover {
+  transform: scale(1.05);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .Header .CallToAction {
+    padding: 2rem 1rem;
+  }
+
+  .Header .CallToAction h1 {
+    font-size: 2rem;
+  }
+
+  .Header .CallToAction h2 {
+    font-size: 1.5rem;
+  }
+
+  .Header .CallToAction p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .Header .CallToAction h1 {
+    font-size: 1.5rem;
+  }
+}
+

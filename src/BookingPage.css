@@ -1,0 +1,43 @@
+/* Booking Page Styles */
+.booking-card {
+  background: linear-gradient(135deg, #495e57 0%, #3a4a45 100%);
+  border: none;
+  border-radius: 12px;
+  color: white;
+}
+
+.booking-card .card-body {
+  background: transparent;
+}
+
+/* Form styling */
+.booking-card .form-control,
+.booking-card .form-select {
+  border: 2px solid #f4ce14;
+  color: #333;
+  font-weight: 500;
+}
+
+.booking-card .form-control:focus,
+.booking-card .form-select:focus {
+  border-color: #f4ce14;
+  box-shadow: 0 0 0 0.2rem rgba(244, 206, 20, 0.25);
+}
+
+.booking-card .form-check-input:checked {
+  background-color: #f4ce14;
+  border-color: #f4ce14;
+}
+
+.booking-card .btn-warning {
+  background-color: #f4ce14;
+  border-color: #f4ce14;
+  transition: all 0.3s ease;
+}
+
+.booking-card .btn-warning:hover {
+  background-color: #e6c914;
+  border-color: #e6c914;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(244, 206, 20, 0.3);
+}

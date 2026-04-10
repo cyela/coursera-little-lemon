@@ -1,0 +1,287 @@
+/* HomePage Call To Action Section */
+.CallToAction {
+  background: linear-gradient(135deg, #f4d4b8 0%, #f9e4d3 100%);
+  padding: 4rem 2rem;
+}
+
+.CallToAction h1 {
+  color: #1a1a1a;
+  font-weight: 700;
+  letter-spacing: -1px;
+}
+
+.CallToAction h2 {
+  color: #495e57;
+  font-weight: 600;
+}
+
+.CallToAction p {
+  color: #333;
+  line-height: 1.8;
+  font-size: 1.1rem;
+}
+
+.CallToAction .btn-dark {
+  background-color: #5c5c5c;
+  border: none;
+  padding: 0.75rem 2.5rem;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+}
+
+.CallToAction .btn-dark:hover {
+  background-color: #495e57;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.cta-image-placeholder {
+  text-align: center;
+}
+
+.cta-image-placeholder img {
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.cta-image-placeholder img:hover {
+  transform: scale(1.05);
+}
+
+/* Specials Section */
+.Specials {
+  padding: 3rem 2rem;
+  background: #f9e4d3;
+  background-size: 100% 100%;
+}
+
+.specials-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 3rem;
+}
+
+.Specials h2 {
+  color: #495e57;
+  font-weight: 700;
+  font-size: 2.5rem;
+  margin: 0;
+}
+
+.specials-header .btn-secondary {
+  background-color: #5c5c5c;
+  border: none;
+  color: white;
+  font-weight: 600;
+  padding: 0.5rem 1.5rem;
+}
+
+.specials-header .btn-secondary:hover {
+  background-color: #495e57;
+}
+
+.specials-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.special-card {
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.special-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.special-image {
+  width: 100%;
+  height: 200px;
+  background: #f0f0f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.special-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.special-content {
+  padding: 1.5rem;
+}
+
+.special-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+  gap: 1rem;
+}
+
+.special-header h3 {
+  margin: 0;
+  color: #1a1a1a;
+  font-weight: 600;
+  font-size: 1.25rem;
+}
+
+.price {
+  color: #f4ce14;
+  font-weight: 700;
+  font-size: 1.1rem;
+  white-space: nowrap;
+}
+
+.special-card .description {
+  color: #495e57;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.order-link {
+  color: #1a1a1a;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-block;
+  transition: color 0.3s ease;
+}
+
+.order-link:hover {
+  color: #f4ce14;
+}
+
+/* Customers Say Section */
+.CustomersSay {
+  padding: 3rem 2rem;
+  background: white;
+}
+
+.CustomersSay h2 {
+  color: #495e57;
+  font-weight: 600;
+  margin-bottom: 3rem;
+  text-align: center;
+}
+
+.testimonials-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.testimonial-card {
+  background: #f9f9f9;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-5px);
+}
+
+.rating {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #f4ce14;
+}
+
+.testimonial-card .review {
+  color: #495e57;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  font-style: italic;
+}
+
+.customer-name {
+  color: #495e57;
+  font-weight: 600;
+  margin: 0;
+  font-size: 1rem;
+}
+
+/* Chicago Section */
+.Chicago {
+  padding: 4rem 2rem;
+  background:#f9e4d3;
+}
+
+.chicago-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  align-items: center;
+}
+
+.chicago-content h2 {
+  color: #1a1a1a;
+  font-weight: 700;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.chicago-content p {
+  color: #333;
+  font-size: 1.1rem;
+  line-height: 1.8;
+}
+
+.chicago-image {
+  text-align: center;
+}
+
+.chicago-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 768px) {
+  .chicago-container {
+    grid-template-columns: 1fr;
+  }
+
+  .chicago-content h2 {
+    font-size: 2rem;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .CallToAction {
+    padding: 2rem 1rem;
+  }
+
+  .CallToAction h1 {
+    font-size: 2rem;
+  }
+
+  .CallToAction h2 {
+    font-size: 1.5rem;
+  }
+
+  .CallToAction p {
+    font-size: 1rem;
+  }
+}

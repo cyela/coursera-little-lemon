@@ -1,0 +1,76 @@
+/* Footer Component */
+.Footer {
+  grid-area: footer;
+  background: linear-gradient(135deg, #495e57 0%, #3a4a45 100%);
+  padding: 3rem 2rem;
+  color: #ffffff;
+}
+
+.Footer h5 {
+  color: #f4ce14;
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.Footer ul {
+  list-style: none;
+}
+
+.Footer li {
+  font-size: 1rem;
+  color: #f0f0f0;
+  margin-bottom: 0.5rem;
+}
+
+.footer-logo {
+  max-width: 150px;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.footer-link {
+  color: #f4ce14;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.footer-link:hover {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+/* Door mat navigation links - keep white */
+.Footer .col-md-2:nth-child(2) .footer-link {
+  color: #ffffff;
+}
+
+.Footer .col-md-2:nth-child(2) .footer-link:hover {
+  color: #f4ce14;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .Footer {
+    padding: 2rem 1rem;
+  }
+
+  .Footer h5 {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .Footer {
+    padding: 1.5rem 1rem;
+  }
+
+  .Footer h5 {
+    font-size: 0.95rem;
+  }
+
+  .Footer li {
+    font-size: 0.9rem;
+  }
+}
