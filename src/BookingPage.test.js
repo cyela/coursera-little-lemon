@@ -38,7 +38,7 @@ describe('BookingPage - UI Tests', () => {
   test('renders submit button', () => {
     render(<BookingPage availableTimes={['17:00']} onDateChange={() => {}} />);
 
-    expect(screen.getByRole('button', { name: /submit booking/i }))
+    expect(screen.getByRole('button', { name: /On Click/i }))
       .toBeInTheDocument();
   });
 });
