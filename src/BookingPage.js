@@ -1,8 +1,9 @@
+/* global submitAPI */
 import { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './BookingPage.css';
 
-function BookingPage() {
+function BookingPage({ availableTimes = [], onDateChange = () => {}, onSubmit = () => {} }) {
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -11,11 +12,19 @@ function BookingPage() {
     guests: 1,
     date: '',
     time: '',
-    seating: 'indoor'
+    seating: 'indoor',
+    occasion: '',
+    occasionDetails: ''
   });
 
   const handleChange = (e) => {
     const { name, value } = e.target;
+    
+    // Call onDateChange when date changes
+    if (name === 'date') {
+      onDateChange(value);
+    }
+    
     setFormData(prev => ({
       ...prev,
       [name]: value
@@ -24,8 +33,18 @@ function BookingPage() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('Booking submitted:', formData);
-    alert('Booking submitted! Check console for details.');
+    
+    // Call the submit handler passed from parent component
+    onSubmit(formData);
+  };
+
+  // Helper function to convert 24-hour time format to 12-hour format
+  const formatTimeDisplay = (time) => {
+    const [hours, minutes] = time.split(':');
+    const hour = parseInt(hours, 10);
+    const period = hour >= 12 ? 'PM' : 'AM';
+    const displayHour = hour > 12 ? hour - 12 : hour === 0 ? 12 : hour;
+    return `${displayHour}:${minutes} ${period}`;
   };
 
   return (
@@ -114,12 +133,11 @@ function BookingPage() {
                       required
                     >
                       <option value="">Select a time</option>
-                      <option value="17:00">5:00 PM</option>
-                      <option value="18:00">6:00 PM</option>
-                      <option value="19:00">7:00 PM</option>
-                      <option value="20:00">8:00 PM</option>
-                      <option value="21:00">9:00 PM</option>
-                      <option value="22:00">10:00 PM</option>
+                      {availableTimes.map((time) => (
+                        <option key={time} value={time}>
+                          {formatTimeDisplay(time)}
+                        </option>
+                      ))}
                     </select>
                   </div>
                   <div className="col-md-4 mb-4">
@@ -170,6 +188,38 @@ function BookingPage() {
                     </label>
                   </div>
                 </div>
+
+                <div className="mb-4">
+                  <label htmlFor="occasion" className="form-label fw-bold text-white">Occasion</label>
+                  <select
+                    className="form-select form-select-lg bg-light"
+                    id="occasion"
+                    name="occasion"
+                    value={formData.occasion}
+                    onChange={handleChange}
+                  >
+                    <option value="">Select an occasion (optional)</option>
+                    <option value="birthday">Birthday</option>
+                    <option value="anniversary">Anniversary</option>
+                    <option value="other">Other</option>
+                  </select>
+                </div>
+
+                {formData.occasion === 'other' && (
+                  <div className="mb-4">
+                    <label htmlFor="occasionDetails" className="form-label fw-bold text-white">Please specify the occasion</label>
+                    <input
+                      type="text"
+                      className="form-control form-control-lg bg-light"
+                      id="occasionDetails"
+                      name="occasionDetails"
+                      placeholder="e.g., Engagement party, Business dinner"
+                      value={formData.occasionDetails}
+                      onChange={handleChange}
+                      required
+                    />
+                  </div>
+                )}
 
                 <div className="d-grid mt-4">
                   <button type="submit" className="btn btn-warning btn-lg py-3 text-dark fw-bold">Submit Booking</button>
