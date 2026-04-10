@@ -222,7 +222,7 @@ function BookingPage({ availableTimes = [], onDateChange = () => {}, onSubmit = 
                 )}
 
                 <div className="d-grid mt-4">
-                  <button type="submit" className="btn btn-warning btn-lg py-3 text-dark fw-bold">Submit Booking</button>
+                  <button type="submit" className="btn btn-warning btn-lg py-3 text-dark fw-bold" aria-label="On Click">Submit Booking</button>
                 </div>
               </form>
             </div>

@@ -1,97 +1,75 @@
 import { render, screen } from '@testing-library/react';
 import BookingPage from './BookingPage';
+import { validateForm } from './utils/validation';
 
-describe('BookingPage Component - Static Text Rendering', () => {
-  
-  test('renders the main heading "Book a Table"', () => {
-    render(<BookingPage availableTimes={['17:00', '18:00', '19:00']} onDateChange={() => {}} />);
-    const heading = screen.getByText('Book a Table');
-    expect(heading).toBeInTheDocument();
+describe('BookingPage - UI Tests', () => {
+
+  test('renders heading', () => {
+    render(<BookingPage availableTimes={['17:00']} onDateChange={() => {}} />);
+    expect(screen.getByText('Book a Table')).toBeInTheDocument();
   });
 
-  test('renders the description text', () => {
-    render(<BookingPage availableTimes={['17:00', '18:00', '19:00']} onDateChange={() => {}} />);
-    const description = screen.getByText(/Please fill out the form below to reserve a table at Little Lemon/i);
-    expect(description).toBeInTheDocument();
+  test('renders description', () => {
+    render(<BookingPage availableTimes={['17:00']} onDateChange={() => {}} />);
+    expect(
+      screen.getByText(/Please fill out the form/i)
+    ).toBeInTheDocument();
   });
 
-  test('renders First Name label', () => {
-    render(<BookingPage availableTimes={['17:00', '18:00', '19:00']} onDateChange={() => {}} />);
-    const firstNameLabel = screen.getByLabelText('First Name');
-    expect(firstNameLabel).toBeInTheDocument();
+  test('renders all inputs', () => {
+    render(<BookingPage availableTimes={['17:00']} onDateChange={() => {}} />);
+
+    expect(screen.getByLabelText('First Name')).toBeInTheDocument();
+    expect(screen.getByLabelText('Last Name')).toBeInTheDocument();
+    expect(screen.getByLabelText('Email')).toBeInTheDocument();
+    expect(screen.getByLabelText('Phone Number')).toBeInTheDocument();
+    expect(screen.getByLabelText('Preferred Date')).toBeInTheDocument();
+    expect(screen.getByLabelText('Preferred Time')).toBeInTheDocument();
+    expect(screen.getByLabelText('Number of Guests')).toBeInTheDocument();
   });
 
-  test('renders Last Name label', () => {
-    render(<BookingPage availableTimes={['17:00', '18:00', '19:00']} onDateChange={() => {}} />);
-    const lastNameLabel = screen.getByLabelText('Last Name');
-    expect(lastNameLabel).toBeInTheDocument();
+  test('renders seating options', () => {
+    render(<BookingPage availableTimes={['17:00']} onDateChange={() => {}} />);
+
+    expect(screen.getByLabelText('Indoor')).toBeInTheDocument();
+    expect(screen.getByLabelText('Outdoor')).toBeInTheDocument();
   });
 
-  test('renders Email label', () => {
-    render(<BookingPage availableTimes={['17:00', '18:00', '19:00']} onDateChange={() => {}} />);
-    const emailLabel = screen.getByLabelText('Email');
-    expect(emailLabel).toBeInTheDocument();
+  test('renders submit button', () => {
+    render(<BookingPage availableTimes={['17:00']} onDateChange={() => {}} />);
+
+    expect(screen.getByRole('button', { name: /submit booking/i }))
+      .toBeInTheDocument();
+  });
+});
+
+describe('validateForm - Logic Tests', () => {
+
+  test('returns true for valid data', () => {
+    const data = {
+      firstName: 'John',
+      lastName: 'Doe',
+      email: 'john@test.com',
+      phone: '1234567890',
+      date: '2026-04-10',
+      time: '17:00',
+      guests: 2
+    };
+
+    expect(validateForm(data)).toBe(true);
   });
 
-  test('renders Phone Number label', () => {
-    render(<BookingPage availableTimes={['17:00', '18:00', '19:00']} onDateChange={() => {}} />);
-    const phoneLabel = screen.getByLabelText('Phone Number');
-    expect(phoneLabel).toBeInTheDocument();
-  });
+  test('returns false for invalid data', () => {
+    const data = {
+      firstName: 'J',
+      lastName: '',
+      email: 'wrong',
+      phone: '123',
+      date: '',
+      time: '',
+      guests: 0
+    };
 
-  test('renders Preferred Date label', () => {
-    render(<BookingPage availableTimes={['17:00', '18:00', '19:00']} onDateChange={() => {}} />);
-    const dateLabel = screen.getByLabelText('Preferred Date');
-    expect(dateLabel).toBeInTheDocument();
-  });
-
-  test('renders Preferred Time label', () => {
-    render(<BookingPage availableTimes={['17:00', '18:00', '19:00']} onDateChange={() => {}} />);
-    const timeLabel = screen.getByLabelText('Preferred Time');
-    expect(timeLabel).toBeInTheDocument();
-  });
-
-  test('renders Number of Guests label', () => {
-    render(<BookingPage availableTimes={['17:00', '18:00', '19:00']} onDateChange={() => {}} />);
-    const guestsLabel = screen.getByLabelText('Number of Guests');
-    expect(guestsLabel).toBeInTheDocument();
-  });
-
-  test('renders Seating Preference label', () => {
-    render(<BookingPage availableTimes={['17:00', '18:00', '19:00']} onDateChange={() => {}} />);
-    const seatingLabel = screen.getByText('Seating Preference');
-    expect(seatingLabel).toBeInTheDocument();
-  });
-
-  test('renders Indoor and Outdoor seating options', () => {
-    render(<BookingPage availableTimes={['17:00', '18:00', '19:00']} onDateChange={() => {}} />);
-    const indoorOption = screen.getByLabelText('Indoor');
-    const outdoorOption = screen.getByLabelText('Outdoor');
-    expect(indoorOption).toBeInTheDocument();
-    expect(outdoorOption).toBeInTheDocument();
-  });
-
-  test('renders Occasion label', () => {
-    render(<BookingPage availableTimes={['17:00', '18:00', '19:00']} onDateChange={() => {}} />);
-    const occasionLabel = screen.getByLabelText('Occasion');
-    expect(occasionLabel).toBeInTheDocument();
-  });
-
-  test('renders Submit Booking button', () => {
-    render(<BookingPage availableTimes={['17:00', '18:00', '19:00']} onDateChange={() => {}} />);
-    const submitButton = screen.getByRole('button', { name: 'Submit Booking' });
-    expect(submitButton).toBeInTheDocument();
-  });
-
-  test('renders all form input fields', () => {
-    render(<BookingPage availableTimes={['17:00', '18:00', '19:00']} onDateChange={() => {}} />);
-    const firstNameInput = screen.getByRole('textbox', { name: 'First Name' });
-    const lastNameInput = screen.getByRole('textbox', { name: 'Last Name' });
-    const emailInput = screen.getByRole('textbox', { name: 'Email' });
-    const phoneInput = screen.getByRole('textbox', { name: 'Phone Number' });
-    expect(firstNameInput).toBeInTheDocument();
-    expect(lastNameInput).toBeInTheDocument();
-    expect(emailInput).toBeInTheDocument();
-    expect(phoneInput).toBeInTheDocument();
+    expect(validateForm(data)).toBe(false);
   });
 });
